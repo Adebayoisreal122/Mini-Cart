@@ -17,7 +17,7 @@ function Add() {
         disp.innerHTML = ""
         for (let i = 0; i < cart.length; i++) {
             disp.innerHTML += `<p> ${i + 1}. ${cart[i]} </p>`
-            item.
+            item.value = ""
         }
     }else {
         show.innerHTML = `<p> please fill up the input</p>`
