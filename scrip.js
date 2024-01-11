@@ -53,17 +53,19 @@ function begin() {
 
 
 function delFirst() {
-    if(disp.value !== ""){
+    if(disp.innerHTML!== "" ){
 
-        cart.push(item.value)
+        var confirmation = confirm("Are you sure you want to delete the first item?");
+      if (confirmation) {
+        cart.shift(item.value)
         disp.innerHTML = ""
-        // for (let i = 0; i < cart.length; i++) {
-        //     disp.innerHTML += `<p> ${i + 1}. ${cart[i]} </p>`
-        //     item.value = ""
-        // }
+        alert("confirmed!");
+      } else {
+    alert(" canceled!");
+      }
         displayCart()
     }else {
-        dip.innerHTML = `<p>the list is already empty</p>`
+        dip.innerHTML = `<p>There is nothing on the  list to delete</p>`
         setTimeout(() => {
             dip.innerHTML = ""
         }, 3000);
@@ -73,17 +75,20 @@ function delFirst() {
 
 
 function delLast() {
-    if(disp.value !== ""){
+    if(disp.innerHTML !== ""){
 
-        cart.push(item.value)
+        var confirmation = confirm("Are you sure you want to delete the last item?");
+      if (confirmation) {
+        cart.pop(item.value)
         disp.innerHTML = ""
-        // for (let i = 0; i < cart.length; i++) {
-        //     disp.innerHTML += `<p> ${i + 1}. ${cart[i]} </p>`
-        //     item.value = ""
-        // }
+        alert("confirmed!");
+      } else {
+    alert(" canceled!");
+      }
+
         displayCart()
     }else {
-        dip.innerHTML = `<p>the list is already empty</p>`
+        dip.innerHTML = `<p>There is nothing on the  list to delete</p>`
         setTimeout(() => {
             dip.innerHTML = ""
         }, 3000);
@@ -93,7 +98,7 @@ function delLast() {
 
 
 function delAny() {
-    if(disp.value !== ""){
+    if(disp.innerHTML !== ""){
 
         cart.push(item.value)
         disp.innerHTML = ""
@@ -133,17 +138,19 @@ function Edit() {
 
 
 function delAll() {
-    if(disp.value !== ""){
+    if(disp.innerHTML !== ""){
 
-        cart.push(item.value)
+    var confirmation = confirm("Are you sure you want to delete all the item?");
+        if (confirmation) {
+        cart.splice(item.value)
         disp.innerHTML = ""
-        // for (let i = 0; i < cart.length; i++) {
-        //     disp.innerHTML += `<p> ${i + 1}. ${cart[i]} </p>`
-        //     item.value = ""
-        // }
+        alert("confirmed!");
+    } else {
+    alert(" canceled!");
+    }
         displayCart()
     }else {
-        dip.innerHTML = `<p>the list is already empty</p>`
+        dip.innerHTML = `<p>The list is already empty</p>`
         setTimeout(() => {
             dip.innerHTML = ""
         }, 3000);
