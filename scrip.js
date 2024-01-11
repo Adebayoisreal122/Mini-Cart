@@ -82,11 +82,11 @@ function delLast() {
         cart.pop(item.value)
         disp.innerHTML = ""
         alert("confirmed!");
+        displayCart()
       } else {
     alert(" canceled!");
       }
 
-        displayCart()
     }else {
         dip.innerHTML = `<p>There is nothing on the  list to delete</p>`
         setTimeout(() => {
@@ -100,9 +100,24 @@ function delLast() {
 function delAny() {
     if(disp.innerHTML !== ""){
        let userInp = Number(prompt("which item number you want to delete"))
-        cart.splice(userInp - 1, 1)
-        disp.innerHTML = ""
-        displayCart()
+       if (userInp === ""){
+           var confirmation = confirm("Are you sure you want to delete the selected item?");
+           if (confirmation) {
+               cart.splice(userInp - 1, 1)
+               disp.innerHTML = ""
+           alert("confirmed!");
+           displayCart()
+       } else {
+       alert(" canceled!");
+       }
+       }else{
+        var confirmation = confirm("are you sure you want to cancel?")
+        if (confirmation){
+            alert("operation canceled")
+        }else {
+            alert("canceled")
+        }
+       }
     }else {
         dip.innerHTML = `<p>The list is already empty</p>`
         setTimeout(() => {
@@ -114,15 +129,21 @@ function delAny() {
 
 
 function Edit() {
-    if(disp.value !== ""){
+    if(disp.innerHTML !== ""){
         let userInp = Number(prompt("which item number you want to delete"))
         let userInput = prompt("what did you want to edit it to")
-
-        cart.splice(userInp - 1, 1, userInput)
-        disp.innerHTML = ""
+        let confirmation = confirm("Are you sure you want to edit the selected item?");
+        
+        if (confirmation) {
+            cart.splice(userInp - 1, 1, userInput)
+            disp.innerHTML = ""
+        alert("confirmed!");
+    } else {
+    alert(" canceled!");
+    }
         displayCart()
     }else {
-        dip.innerHTML = `<p>the list is already empty</p>`
+        dip.innerHTML = `<p>There is no item to delete</p>`
         setTimeout(() => {
             dip.innerHTML = ""
         }, 3000);
@@ -134,7 +155,7 @@ function Edit() {
 function delAll() {
     if(disp.innerHTML !== ""){
 
-    var confirmation = confirm("Are you sure you want to delete all the item?");
+    let confirmation = confirm("Are you sure you want to delete all the item?");
         if (confirmation) {
         cart.splice(item.value)
         disp.innerHTML = ""
