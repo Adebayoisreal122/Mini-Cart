@@ -99,16 +99,12 @@ function delLast() {
 
 function delAny() {
     if(disp.innerHTML !== ""){
-
-        cart.push(item.value)
+       let userInp = Number(prompt("which item number you want to delete"))
+        cart.splice(userInp - 1, 1)
         disp.innerHTML = ""
-        // for (let i = 0; i < cart.length; i++) {
-        //     disp.innerHTML += `<p> ${i + 1}. ${cart[i]} </p>`
-        //     item.value = ""
-        // }
         displayCart()
     }else {
-        dip.innerHTML = `<p>the list is already empty</p>`
+        dip.innerHTML = `<p>The list is already empty</p>`
         setTimeout(() => {
             dip.innerHTML = ""
         }, 3000);
@@ -119,13 +115,11 @@ function delAny() {
 
 function Edit() {
     if(disp.value !== ""){
+        let userInp = Number(prompt("which item number you want to delete"))
+        let userInput = prompt("what did you want to edit it to")
 
-        cart.push(item.value)
+        cart.splice(userInp - 1, 1, userInput)
         disp.innerHTML = ""
-        // for (let i = 0; i < cart.length; i++) {
-        //     disp.innerHTML += `<p> ${i + 1}. ${cart[i]} </p>`
-        //     item.value = ""
-        // }
         displayCart()
     }else {
         dip.innerHTML = `<p>the list is already empty</p>`
